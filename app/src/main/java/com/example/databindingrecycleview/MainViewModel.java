@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.databindingrecycleview.bean.Employee;
+
 import java.util.List;
 
 public class MainViewModel extends AndroidViewModel {

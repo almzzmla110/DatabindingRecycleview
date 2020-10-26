@@ -1,5 +1,6 @@
 package com.example.databindingrecycleview;
 
+import com.example.databindingrecycleview.bean.Employee;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

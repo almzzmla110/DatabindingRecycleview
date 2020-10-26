@@ -9,7 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
+import com.example.databindingrecycleview.adapter.EmployeeDataAdapter;
+import com.example.databindingrecycleview.bean.Employee;
 import com.example.databindingrecycleview.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
@@ -28,7 +32,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        employeeDataAdapter = new EmployeeDataAdapter();
+//        employeeDataAdapter = new EmployeeDataAdapter();
+        employeeDataAdapter = new EmployeeDataAdapter(new OnRecycleViewClick() {
+            @Override
+            public void onItemClicked(View view, Employee mEmployee) {
+                Toast.makeText(MainActivity.this,"点击了整个item",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onImgClicked(View view, Employee mEmployee) {
+                Toast.makeText(MainActivity.this,"点击了img",Toast.LENGTH_SHORT).show();
+            }
+        });
         recyclerView.setAdapter(employeeDataAdapter);
         getAllEmployee();
     }

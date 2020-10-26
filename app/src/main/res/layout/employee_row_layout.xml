@@ -6,12 +6,17 @@
     <data>
         <variable
             name="employee"
-            type="com.example.databindingrecycleview.Employee"/>
-
+            type="com.example.databindingrecycleview.bean.Employee"/>
+        <variable
+            name="itemclick"
+            type="com.example.databindingrecycleview.OnRecycleViewClick" />
     </data>
     <LinearLayout
+        android:id="@+id/layout_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="@{(view)->itemclick.onItemClicked(view,employee)}"
         android:adjustViewBounds="true">
 
         <androidx.cardview.widget.CardView
@@ -33,6 +38,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:onClick="@{(view)->itemclick.onImgClicked(view,employee)}"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:scaleType="fitXY"
                     bind:avatar="@{employee.avatar}"
